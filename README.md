@@ -88,3 +88,23 @@ import vue.js in the entry of webpack
 ```
 import Vue from 'vue'
 ```
+## [Code Splitting](https://webpack.js.org/guides/code-splitting/)
+Code splitting is one of the most compelling features of webpack. This feature allows you to split your code into various bundles which can then be loaded on demand or in parallel.
+If used correctly, can have a major impact on load time.
+
+- **[SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/) :**
+The SplitChunksPlugin allows us to extract common dependencies into an existing entry chunk or an entirely new chunk
+
+webpack.config.js
+
+```
+module.exports = {
+//...
+  optimization: {
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    },
+  },
+};
+```

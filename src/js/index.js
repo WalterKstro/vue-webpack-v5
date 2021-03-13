@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import "../css/style.css";
 
 const encabezado = {

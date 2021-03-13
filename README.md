@@ -71,3 +71,20 @@ There is one change that you will have to make to your webpack config. Typically
 ```
 "dev": "webpack --mode=development",
 "build": "webpack --mode=production",
+```
+## Adding Vue
+```
+npm install --save-dev vue
+```
+webpack.config.js add resolve, for get full version of vue (Runtime+Compiler)
+```
+resolve : {
+	alias : {
+		'vue$' : 'vue/dist/vue.esm.js'
+	}
+}
+```
+import vue.js in the entry of webpack
+```
+import Vue from 'vue'
+```

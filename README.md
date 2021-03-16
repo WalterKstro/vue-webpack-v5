@@ -108,3 +108,31 @@ module.exports = {
   },
 };
 ```
+## Babel is a JavaScript compiler.
+
+```
+npm install -D babel-loader @babel/core @babel/preset-env @babel/plugin-syntax-dynamic-import
+```
+webpack.config.js
+```
+	{
+		test: /\.js$/,
+		exclude: /(node_modules|bower_components)/,
+		use: [{loader: 'babel-loader'}]
+	}
+```
+File in the root .babelrc
+```
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": "> 0.25%, not dead"
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-syntax-dynamic-import"]
+}
+```

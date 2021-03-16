@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/js/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    filename: "[name].[fullhash].bundle.js",
   },
   resolve : {
     alias : {
@@ -20,6 +20,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [{loader: 'babel-loader'}]
+      },
       {
         test: /\.css$/,
         use: [

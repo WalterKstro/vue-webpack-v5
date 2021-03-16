@@ -9,6 +9,11 @@ const anuncio = {
   template: "#template-anuncio",
 };
 
+
+const wrapper = {
+  template: '#template-container'
+}
+
 const vm = new Vue({
   el: "#app",
   data: {},

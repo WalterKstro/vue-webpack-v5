@@ -1,4 +1,4 @@
-# Vue.js & Webpack v5
+# Webpack v5 2021
 ##  Setting[ Webpack](https://webpack.js.org/concepts/configuration/ " Webpack")
 As of version 4, webpack doesn't require any configuration
 ### Simple setting (webpack.config.js)

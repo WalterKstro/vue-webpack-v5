@@ -10,7 +10,7 @@ html{
   font-family: Arial;
 }
 .header{
-  background-color: purple;
+  background-color: black;
   display: flex;
   justify-content: space-around;
   padding: 20px 0;

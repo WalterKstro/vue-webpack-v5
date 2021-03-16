@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: "./src/js/index.js",
+  devtool: 'inline-source-map',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[fullhash].bundle.js",
@@ -17,6 +19,10 @@ module.exports = {
     splitChunks : {
       chunks : 'all'
     }
+  },
+  devServer: {
+    contentBase: './dist'
+    // hot: true
   },
   module: {
     rules: [

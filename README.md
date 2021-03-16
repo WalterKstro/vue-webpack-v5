@@ -136,3 +136,32 @@ File in the root .babelrc
   "plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-syntax-dynamic-import"]
 }
 ```
+
+## Webpack dev server
+The webpack-dev-server provides you with a simple web server and the ability to use live reloading. For default webpack-dev-server create a full refresh in the complete page, loss the state of page
+```
+npm install --save-dev webpack-dev-server
+```
+webpack.config.js
+```
+devServer: {
+	contentBase: './dist',
+}
+```
+and scripts in file package.json
+```
+"serve": "webpack serve --open"
+```
+## Hot	Module Replacement (HMR)
+This feature is great for productivity.Enabling HMR is easy and in most cases no options are necessary. 
+You should not use HotModuleReplacementPlugin plugin if you are using a webpack-dev-server.
+Only we need add the key hot with value true in the object `devServer`
+But this isn't completed, We need add these configuration in the index.js
+```
+if (module.hot) {
+  module.hot.accept();
+}
+```
+
+**Note:** HMR is automatically supported in webpack 5. No need to configure it
+

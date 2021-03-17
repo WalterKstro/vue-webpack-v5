@@ -165,3 +165,8 @@ if (module.hot) {
 
 **Note:** HMR is automatically supported in webpack 5. No need to configure it
 
+## Cleaning up the /dist folder
+In general it's good practice to clean the /dist folder before each build
+Add the option `clean: true` in the object output for enabled the clean of folter dist
+
+

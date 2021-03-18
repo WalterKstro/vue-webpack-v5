@@ -167,6 +167,65 @@ if (module.hot) {
 
 ## Cleaning up the /dist folder
 In general it's good practice to clean the /dist folder before each build
-Add the option `clean: true` in the object output for enabled the clean of folter dist
+Add the option `clean: true` in the object output for enabled the clean of folder dist before build
+
+## Vue Loader(Single File Components)
+**[vue-loader](https://vue-loader.vuejs.org/)** is a loader for webpack that allows you to author Vue components in a format called Single-File Components (SFCs)
+If you are not interested in manually setting up webpack, it is recommended to scaffold a project with Vue CLI
+
+	<template>
+		<div class="example">{{ msg }}</div>
+	</template>
+
+	<script>
+	export default {
+		data () {
+			return {
+				msg: 'Hello world!'
+			}
+		}
+	}
+	</script>
+
+	<style>
+	.example {
+		color: red;
+	}
+	</style>
 
 
+### Manual Setup
+	npm install -D vue-loader vue-template-compiler
+
+After of installed the loader. You have to create the structure similary of vue cli in your project
+
+### webpack Configuration
+	const { VueLoaderPlugin } = require('vue-loader')
+
+	rules: [
+		{
+			test: /\.vue$/,
+			loader: 'vue-loader'
+		}
+	]
+	plugins: [
+			// make sure to include the plugin!
+			new VueLoaderPlugin()
+	]
+
+### CSS Extraction in Single File Components
+You need install a loader vue-style-loader and modify the rule of css in the array rules in webpack.config.js
+
+	npm install --save-dev vue-style-loader
+
+webpack Configuration
+
+	{
+		test: /\.css$/,
+		use: [
+			argv.mode !== 'production'
+				? 'vue-style-loader'
+				: MiniCssExtractPlugin.loader,
+			'css-loader'
+		]
+	}

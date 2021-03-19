@@ -17,6 +17,26 @@
   }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+.header{
+  background-color: $bg-global;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+.brand{
+  font-size: 2.5rem;
+  color: white;
+}
+.nav{
+  flex-basis: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 2.5rem;
+}
+.nav a{
+  text-decoration: none;
+  color: white;
+}
 </style>

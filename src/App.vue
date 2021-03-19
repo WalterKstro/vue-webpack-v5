@@ -15,7 +15,7 @@ import Slider from './components/Slider.vue'
   }
 </script>
 
-<style>
+<style lang="scss">
 *,
 *::after,
 *::before{
@@ -27,27 +27,7 @@ import Slider from './components/Slider.vue'
 html{
   font-family: Arial;
 }
-.header{
-  background-color: black;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 0;
-}
-.brand{
-  font-size: 2.5rem;
-  color: white;
-}
-.nav{
-  flex-basis: 30%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 2.5rem;
-}
-.nav a{
-  text-decoration: none;
-  color: white;
-}
+
 
 .banner{
   max-width: 1024px;

@@ -39,12 +39,18 @@ module.exports = (argv) => {
           use: [{loader: 'babel-loader'}]
         },
         {
-          test: /\.css$/,
+          test: /\.scss$/,
           use: [
             argv.mode !== 'production'
             ? 'vue-style-loader'
             :  MiniCssExtractPlugin.loader,
-            'css-loader'
+            'css-loader',
+            {
+              loader : 'sass-loader',
+              options : {
+                  additionalData: '@import "./src/scss/variants.scss";'
+              }
+            }
           ]
         },
         {

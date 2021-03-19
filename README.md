@@ -229,3 +229,40 @@ webpack Configuration
 			'css-loader'
 		]
 	}
+
+## Using Pre-Processors
+In webpack, all pre-processors need to be applied with a corresponding loader. vue-loader allows you to use other webpack loaders to process a part of a Vue component
+### Sass
+	npm install -D sass-loader node-sass
+
+In your webpack config:
+
+	// this will apply to both plain `.scss` files
+	// AND `<style lang="scss">` blocks in `.vue` files
+	{
+		test: /\.scss$/,
+		use: [
+			'vue-style-loader',
+			'css-loader',
+			'sass-loader'
+		]
+	}
+
+
+### Sharing Global Variables
+`sass-loader` also supports a additionalData option which allows you to share common variables among all processed files without having to explicit import them
+
+	// webpack.config.js -> module.rules
+	{
+		test: /\.scss$/,
+		use: [
+			'vue-style-loader',
+			'css-loader',
+			{
+				loader: 'sass-loader',
+				options: {
+					'@import "./src/scss/variants.scss";'
+				}
+			}
+		]
+	}

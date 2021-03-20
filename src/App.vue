@@ -6,12 +6,15 @@
 </template>
 
 <script>
-import Navigaitor from './components/Navigaitor.vue'
-import Slider from './components/Slider.vue'
+// import Navigaitor from './components/Navigaitor.vue'
+// import Slider from './components/Slider.vue'
 
   export default {
     name : 'App',
-    components : {Navigaitor, Slider}
+    components : {
+      Navigaitor : () => import( /* webpackChunkName: "Navigaitor" */ './components/Navigaitor.vue'),
+      Slider : () => import( /* webpackChunkName: "Slider", webpackPrefetch:true */ './components/Slider.vue')
+      }
   }
 </script>
 

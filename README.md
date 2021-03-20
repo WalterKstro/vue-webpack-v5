@@ -102,12 +102,32 @@ module.exports = {
 //...
   optimization: {
     splitChunks: {
-      // include all types of chunks
       chunks: 'all',
     },
   },
 };
 ```
+### Dynamic Imports for Chunks
+Before we start, let's remove the extra entry and optimization.splitChunks from our configuration
+
+For optimization the bundle we can separate the bundle in chunks, for this we need change the import of componentes in the Single File Componentes
+	
+	/*Delete*/
+	import Navigaitor from './components/Navigaitor.vue'
+	import Slider from './components/Slider.vue'}
+
+	/*New*/
+	components : {
+		Navigaitor : () => import('./components/Navigaitor.vue'),
+		Slider : () => import('./components/Slider.vue')
+	}
+
+NOTE: We can rename the chunks adding a Magic Comments on the import
+ 	
+	 Navigaitor : () => import(/* webpackChunkName: "my-chunk-name" */ './components/Navigaitor.vue'),
+
+
+
 ## Babel is a JavaScript compiler.
 
 ```

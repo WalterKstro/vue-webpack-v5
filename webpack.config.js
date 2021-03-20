@@ -18,11 +18,11 @@ module.exports = (argv) => {
         'vue$' : 'vue/dist/vue.esm.js'
       }
     },
-    optimization : {
-      splitChunks : {
-        chunks : 'all'
-      }
-    },
+    // optimization : {
+    //   splitChunks : {
+    //     chunks : 'all'
+    //   }
+    // },
     devServer: {
       contentBase: './dist'
       // hot: true
@@ -48,7 +48,7 @@ module.exports = (argv) => {
             {
               loader : 'sass-loader',
               options : {
-                  additionalData: '@import "./src/scss/variants.scss";'
+                additionalData: '@import "./src/scss/variants.scss";'
               }
             }
           ]

@@ -286,3 +286,4 @@ In your webpack config:
 			}
 		]
 	}
+

@@ -10,7 +10,7 @@ module.exports = (argv) => {
     devtool: argv.mode === 'development' ? 'eval-source-map' : 'source-map',
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "[name].[fullhash].bundle.js",
+      filename: "[name].[contenthash].bundle.js",
       clean: true
     },
     resolve : {
@@ -18,11 +18,12 @@ module.exports = (argv) => {
         'vue$' : 'vue/dist/vue.esm.js'
       }
     },
-    // optimization : {
-    //   splitChunks : {
-    //     chunks : 'all'
-    //   }
-    // },
+    optimization : {
+      // splitChunks : {
+      //   chunks : 'all'
+      // }
+      runtimeChunk: 'single'
+    },
     devServer: {
       contentBase: './dist'
       // hot: true
@@ -61,7 +62,9 @@ module.exports = (argv) => {
     },
     plugins: [
       new VueLoaderPlugin(),
-      new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin({
+        filename: "[name].[contenthash].css",
+      }),
       new HtmlWebpackPlugin({
         title: "Webpack desde cero",
         template: "./src/index.html",

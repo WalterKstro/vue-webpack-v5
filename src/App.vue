@@ -12,8 +12,11 @@
   export default {
     name : 'App',
     components : {
-      Navigaitor : () => import( /* webpackChunkName: "Navigaitor" */ './components/Navigaitor.vue'),
-      Slider : () => import( /* webpackChunkName: "Slider", webpackPrefetch:true */ './components/Slider.vue')
+      Navigaitor : () => import( 
+        /* webpackChunkName: "Navigaitor" */ './components/Navigaitor.vue'),
+      Slider : () => import( 
+        /* webpackChunkName: "Slider", 
+        webpackPrefetch:true */ './components/Slider.vue')
       }
   }
 </script>

@@ -287,3 +287,72 @@ In your webpack config:
 		]
 	}
 
+## ESLint
+Official ESLint plugin for Vue.js.
+
+This plugin allows us to check the `<template>` and `<script>` of .vue files with ESLint, as well as Vue code in .js files.
+
+	npm install --save-dev eslint eslint-plugin-vue
+
+For enabled ESLint we need create a new scripts in the package.json
+
+	"lint": "eslint --ext .js,.vue src"
+We too can automation the fix the bugs in our code, adding the flag --fix
+
+	"fix": "eslint --ext .js,.vue src --fix"
+Config file .eslinttrc.js
+
+	module.exports = {
+		extends: [
+			'plugin:vue/essential',
+			'plugin:vue/vue3-recommended',
+			'eslint:recommended'
+		],
+		rules: {}
+	}
+### ESLint y Babel
+babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+
+	npm install @babel/eslint-parser --save-dev
+
+Config file .eslinttrc.js
+
+	parser: "@babel/eslint-parser",
+	parserOptions: {
+		sourceType: "module",
+	},
+
+## Merge Webpack and ESLint
+Another option is using eslint-loader so that your *.vue files are automatically linted on save during development
+
+	npm install -D eslint eslint-loader
+
+Webpack file webpack.config.js
+
+	module.exports = {
+		// ... other options
+		module: {
+			rules: [
+				{
+					enforce: 'pre',
+					test: /\.(js|vue)$/,
+					loader: 'eslint-loader',
+					exclude: /node_modules/
+				}
+			]
+		}
+	}
+
+We too, we can view the error and warning messages, in the browser and in the termimal
+
+	/* Webpack config */
+	
+	devServer: {
+		contentBase: './dist',
+		clientLogLevel: 'info',
+		overlay: {
+			warnings: true,
+			errors: true
+		}
+		// hot: true
+	},

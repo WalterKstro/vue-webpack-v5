@@ -25,11 +25,22 @@ module.exports = (argv) => {
       runtimeChunk: 'single'
     },
     devServer: {
-      contentBase: './dist'
+      contentBase: './dist',
+      clientLogLevel: 'info',
+      overlay: {
+        warnings: true,
+        errors: true
+      }
       // hot: true
     },
     module: {
       rules: [
+        {
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /node_modules/
+        },
         {
           test: /\.vue$/,
           loader: 'vue-loader'

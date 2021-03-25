@@ -356,3 +356,27 @@ We too, we can view the error and warning messages, in the browser and in the te
 		}
 		// hot: true
 	},
+
+## Create diferents environments of production and development
+The goals of development and production builds differ greatly. In development, we want strong source mapping and a localhost server with live reloading or hot module replacement. In production, our goals shift to a focus on minified bundles, lighter weight source maps, and optimized assets to improve load time. With this logical separation at hand, we typically recommend writing separate webpack configurations for each environment.
+
+- webpack.common.js
+- webpack.dev.js
+- webpack.prod.js
+
+
+### Webpack Merge
+While we will separate the production and development specific bits out, note that we'll still maintain a "common" configuration to keep things DRY. In order to merge these configurations together, we'll use a utility called webpack-merge
+
+	npm install --save-dev webpack-merge
+
+`NOTE:` In this step we need delete the file webpack.config.js general
+
+### NPM Scripts
+
+In the file package.json we need update with these scripts with the flag --config and their file seleccioned
+
+	scripts : {
+		"build": "webpack --config webpack.prod.js",
+		"serve": "webpack serve --open --config webpack.dev.js",
+	}

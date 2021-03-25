@@ -2,6 +2,7 @@
   <div class="wrapper">
     <Navigaitor />
     <Slider />
+    <Footer />
   </div>
 </template>
 
@@ -16,7 +17,8 @@
         /* webpackChunkName: "Navigaitor" */ './components/Navigaitor.vue'),
       Slider : () => import( 
         /* webpackChunkName: "Slider", 
-        webpackPrefetch:true */ './components/Slider.vue')
+        webpackPrefetch:true */ './components/Slider.vue'),
+      Footer : () => import('./components/Footer.vue')
       }
   }
 </script>

@@ -10,7 +10,7 @@ module.exports = (argv) => {
     devtool: argv.mode === 'development' ? 'eval-source-map' : 'source-map',
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "[name].[contenthash].bundle.js",
+      filename: "[name].[hash].bundle.js",
       clean: true
     },
     resolve : {
